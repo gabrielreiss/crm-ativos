@@ -162,8 +162,9 @@ while True:
     try:
         df = pd.read_csv('dados_medicos_rs.csv')
         paginas = df["Pagina"].unique()
-        if not list(range(1,4023)) in paginas:
-            rouba_dados_CFM()
+        for pagina in list(range(1,4023)):
+            if not str(pagina) in paginas:
+                rouba_dados_CFM()
     except Exception as e:
         print(e)
     time.sleep(30)
